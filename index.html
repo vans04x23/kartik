@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Royal Enterprises</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Royal Enterprises</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#products">Products</a>
+      <a href="#specialize" class="nav-item">We Specialize In</a>
+      <a href="#why-choose" class="nav-item">Why Choose Us</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="smoke"></div>
+    <div class="hero-bg"></div>
+
+    <div class="hero-animation">
+      <h1 class="hero-title glow-gold">Royal Enterprises</h1>
+      <img src="front.png" alt="Royal Enterprises Logo" class="hero-logo">
+    </div>
+
+    <div class="hero-content glow-gold">
+      <h2 class="glow-gold">The Gold Standard in Tobacco</h2>
+      <p>Where craftsmanship, heritage, and luxury meet — Royal Enterprises stands as a symbol of timeless excellence.</p>
+    </div>
+  </section>
+
+  <!-- Products Section (Video + Text) -->
+  <section class="products-section" id="what-we-do">
+    <h2 class="section-title glow-gold">What We Do</h2>
+
+    <div class="products-container">
+      <div class="products-left">
+        <video id="blendVideo" autoplay loop muted playsinline>
+          <source src="blend.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+
+        <div class="video-controls">
+          <button id="blendMuteBtn">🔇</button>
+          <button id="blendFullscreenBtn">⛶</button>
+        </div>
+      </div>
+
+      <div class="products-right">
+        <p>
+          At <strong>Royal Enterprises</strong>, we craft exceptional tobacco products that embody the essence of quality, luxury, and precision. Every blend represents our dedication to maintaining the gold standard in tobacco excellence.
+        </p>
+        <br>
+        <p>
+          From sourcing premium leaves to maintaining perfect curing and texture — our signature products are trusted by traders and connoisseurs across the nation. Experience a legacy refined over decades.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Gallery -->
+  <section class="products-section" id="products">
+    <h2 class="section-title glow-gold">Products</h2>
+
+    <div class="blends-container">
+      <div class="blend-card">
+        <img src="bg1.jpeg" alt="Bidi Tobacco">
+        <h3 class="glow-gold">Bidi Tobacco</h3>
+      </div>
+
+      <div class="blend-card">
+        <img src="bg2.jpeg" alt="Raw Tobacco Leaves">
+        <h3 class="glow-gold">Raw Tobacco Leaves</h3>
+      </div>
+
+      <div class="blend-card">
+        <img src="bg3.jpeg" alt="Processed Tobacco">
+        <h3 class="glow-gold">Processed Tobacco</h3>
+      </div>
+
+      <div class="blend-card">
+        <img src="bg4.jpeg" alt="Emerald Essence">
+        <h3 class="glow-gold">Emerald Essence</h3>
+      </div>
+    </div>
+  </section>
+
+ <!-- Timelapse Writing Section -->
+<section class="what-we-do" id="timelapse">
+  <h2 class="section-title glow-gold">Day 1 to Day 60 – Timelapse Writing</h2>
+
+  <div class="what-container">
+    <div class="what-left">
+      <video id="workVideo" autoplay loop muted playsinline>
+        <source src="work.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <div class="video-controls">
+        <button id="muteBtn">🔇</button>
+        <button id="fullscreenBtn">⛶</button>
+      </div>
+    </div>
+
+    <div class="what-right">
+      <p><strong>Day 1:</strong> From a single seed… a journey begins.</p>
+      <p><strong>Day 5:</strong> Soil breaks. Life takes its first breath.</p>
+      <p><strong>Day 10:</strong> A tender sprout rises, reaching for the sun.</p>
+      <p><strong>Day 15:</strong> Roots grow stronger. The future takes shape.</p>
+      <p><strong>Day 20:</strong> Green leaves unfold — nature shows its promise.</p>
+      <p><strong>Day 25:</strong> Strength builds silently, day by day.</p>
+      <p><strong>Day 30:</strong> The plant stands firm — balanced, alive, thriving.</p>
+      <p><strong>Day 35:</strong> Each leaf grows wider, richer, fuller.</p>
+      <p><strong>Day 40:</strong> Time, care, and patience create quality.</p>
+      <p><strong>Day 45:</strong> The tobacco tree reflects discipline and craft.</p>
+      <p><strong>Day 50:</strong> Maturity begins to show — bold and refined.</p>
+      <p><strong>Day 55:</strong> Nature reaches perfection through dedication.</p>
+      <p><strong>Day 60:</strong> A complete tobacco tree — grown with care, refined by time, ready to become excellence.</p>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- We Specialize In -->
+<section class="specialize" id="specialize">
+  <h2 class="section-title glow-gold">We Specialize In</h2>
+  <div class="carousel-section">
+    <div class="carousel-text">
+      <ul>
+        <li>Manufacturing of high-quality Bidi Tobacco</li>
+        <li>Supplying various grades of tobacco</li>
+        <li>Bulk supply for domestic and commercial use</li>
+        <li>Custom tobacco solutions as per market demand</li>
+      </ul>
+    </div>
+    <div class="carousel-container">
+      <div class="carousel" id="specializeCarousel">
+        <img src="specialize1.jpg" alt="Specialize Image 1">
+        <img src="specialize2.webp" alt="Specialize Image 2">
+        <img src="specialize3.jpg" alt="Specialize Image 3">
+        <img src="specialize4.webp" alt="Specialize Image 4">
+      </div>
+      <div class="carousel-controls">
+        <button class="prev">❮</button>
+        <div class="dots" id="specializeDots"></div>
+        <button class="next">❯</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Royal Enterprises -->
+<section class="why-choose" id="why-choose">
+  <h2 class="section-title glow-gold">Why Choose Royal Enterprises</h2>
+  <div class="carousel-section reverse">
+    <div class="carousel-container">
+      <div class="carousel" id="chooseCarousel">
+        <img src="1.jpg" alt="Choose Image 1">
+        <img src="price.jpg" alt="Choose Image 2">
+        <img src="world.avif" alt="Choose Image 3">
+        <img src="bg1.jpeg" alt="Choose Image 4">
+      </div>
+      <div class="carousel-controls">
+        <button class="prev">❮</button>
+        <div class="dots" id="chooseDots"></div>
+        <button class="next">❯</button>
+      </div>
+    </div>
+    <div class="carousel-text">
+      <ul>
+        <li>Premium Quality Tobacco</li>
+        <li>Strict Quality Control</li>
+        <li>Consistent Supply Chain</li>
+        <li>Competitive Pricing</li>
+        <li>Trusted by Industry Professionals</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="about" id="about">
+  <h2 class="section-title glow-gold">About Us</h2>
+  <div class="about-container">
+    <img src="front.png" alt="About Image" class="about-image">
+    <p>
+      <strong>Royal Enterprises</strong> is a trusted name in the tobacco industry, known for delivering premium-quality tobacco products with consistency and integrity. With years of expertise in manufacturing and supplying various kinds of tobacco, we focus on quality, purity, and customer satisfaction.
+    </p>
+    <br>
+    <p>
+      Our commitment to excellence has made <strong>Royal Enterprises</strong> a preferred choice among traders, distributors, and industry professionals. Every product we craft embodies our dedication to maintaining a legacy of trust, luxury, and perfection.
+    </p>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="contact" id="contact">
+  <h2 class="section-title glow-gold">Contact Us</h2>
+  <img src="card.jpeg" alt="Contact Image" class="contact-image">
+  
+  <div class="contact-info">
+    <p>📞 +91 8237053913</p>
+    <p>📞 +91 7738181961</p>
+  </div>
+</section>
+
+
+  
+
+  <!-- Footer -->
+  <footer class="glow-gold">
+    © 2026 Royal Enterprises | The Gold Standard in Tobacco
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    const blendVideo = document.getElementById('blendVideo');
+    const blendMuteBtn = document.getElementById('blendMuteBtn');
+    const blendFullscreenBtn = document.getElementById('blendFullscreenBtn');
+
+    blendMuteBtn.addEventListener('click', () => {
+      blendVideo.muted = !blendVideo.muted;
+      blendMuteBtn.textContent = blendVideo.muted ? '🔇' : '🔊';
+    });
+
+    blendFullscreenBtn.addEventListener('click', () => {
+      if (blendVideo.requestFullscreen) blendVideo.requestFullscreen();
+    });
+
+
+
+    // ===== UNIVERSAL CAROUSEL FUNCTION =====
+function createCarousel(carouselId, dotsId) {
+  const carousel = document.getElementById(carouselId);
+  const dotsContainer = document.getElementById(dotsId);
+  const images = carousel.querySelectorAll('img');
+  const total = images.length;
+  let index = 0;
+
+  // Create dots
+  for (let i = 0; i < total; i++) {
+    const dot = document.createElement('span');
+    dot.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(dot);
+  }
+  const dots = dotsContainer.querySelectorAll('span');
+
+  function updateCarousel() {
+    carousel.style.transform = `translateX(-${index * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === index));
+  }
+
+  function goTo(i) {
+    index = i;
+    updateCarousel();
+  }
+
+  function next() {
+    index = (index + 1) % total;
+    updateCarousel();
+  }
+
+  function prev() {
+    index = (index - 1 + total) % total;
+    updateCarousel();
+  }
+
+  const container = carousel.parentElement;
+  container.querySelector('.next').addEventListener('click', next);
+  container.querySelector('.prev').addEventListener('click', prev);
+
+  updateCarousel();
+
+  // Auto-slide
+  setInterval(next, 3000);
+}
+
+// Initialize both carousels
+createCarousel('specializeCarousel', 'specializeDots');
+createCarousel('chooseCarousel', 'chooseDots');
+
+  </script>
+
+</body>
+</html>

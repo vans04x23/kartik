@@ -1,0 +1,1107 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --royal-maroon: #4B1E1E;
+  --gold: #D4AF37;
+  --beige: #EADCA6;
+}
+
+/* ===== GLOW EFFECT ===== */
+.glow-gold {
+  color: var(--gold);
+  text-shadow:
+    0 0 5px #D4AF37,
+    0 0 10px #D4AF37,
+    0 0 15px #D4AF37,
+    0 0 25px #D4AF37;
+  animation: glowPulse 2.5s infinite alternate;
+}
+
+@keyframes glowPulse {
+  0%, 100% { text-shadow: 0 0 8px var(--gold); }
+  50% { text-shadow: 0 0 20px var(--gold), 0 0 40px var(--gold); }
+}
+
+/* ===== GENERAL ===== */
+body {
+  font-family: 'Lora', serif;
+  background-color: var(--royal-maroon);
+  color: var(--beige);
+  line-height: 1.7;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* ===== HEADER ===== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: rgba(25, 10, 10, 0.3);
+  backdrop-filter: blur(15px);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+}
+
+header h1 {
+  font-family: 'Cinzel', serif;
+  color: var(--gold);
+  font-size: 2rem;
+  text-shadow: 0 0 10px rgba(212,175,55,0.5);
+}
+
+nav a {
+  margin-left: 25px;
+  font-weight: bold;
+  color: var(--beige);
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: var(--gold);
+  text-shadow: 0 0 10px var(--gold);
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(212,175,55,0.15) 0%, transparent 80%);
+  transform: translate(-50%, -50%);
+  filter: blur(80px);
+}
+
+/* ===== INTRO FADE-OUT ===== */
+.hero-animation {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  animation: introFadeOut 7s ease forwards; /* ✅ fades away after 7s */
+  animation-delay: 0s;
+  z-index: 5;
+}
+
+@keyframes introFadeOut {
+  0%, 80% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+
+.hero-title {
+  font-family: 'Cinzel', serif;
+  color: #FFD700;
+  font-size: 3.2rem;
+  opacity: 0;
+  transform: scale(0.5);
+  animation: titleAppear 2.5s ease-in-out forwards;
+}
+
+.hero-logo {
+  width: 320px;
+  margin-top: 40px;
+  opacity: 0;
+  transform: scale(0.4);
+  animation: logoAppear 2.5s ease-in-out 2.5s forwards;
+  filter: drop-shadow(0 0 20px rgba(212,175,55,0.4));
+}
+
+.hero-content {
+  opacity: 0;
+  animation: contentFadeIn 1s ease-in-out 5s forwards;
+  text-align: center;
+  margin-top: 430px;
+  padding: 0 20px;
+}
+
+.hero-content h2 {
+  font-family: 'Cinzel', serif;
+  color: var(--gold);
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  color: var(--beige);
+  font-size: 1.1rem;
+}
+
+/* Hero Background Image */
+.hero-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 700px;
+  height: 500px;
+  background: url("tobacco.jpeg") center/cover no-repeat;
+  border-radius: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.9);
+  box-shadow: 0 0 80px rgba(212,175,55,0.3);
+  animation: showTobacco 2.5s ease-in-out 4.5s forwards;
+  -webkit-mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+}
+
+/* Hero Animations */
+@keyframes titleAppear {
+  0% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: 1; transform: scale(1.1); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes logoAppear {
+  0% { opacity: 0; transform: scale(0.3); }
+  70% { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes contentFadeIn {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes showTobacco {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+.hero-bg,
+.smoke,
+.hero-content {
+  animation-delay: 6s; /* ✅ starts showing after intro fades */
+}
+
+
+
+/* Smoke Effect */
+/* ===== GOLDEN SMOKE EFFECT (VISIBLE & ELEGANT) ===== */
+.smoke {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(212,175,55,0.25) 10%, transparent 70%);
+  filter: blur(90px);
+  opacity: 0.4; /* ✅ visible but soft */
+  transform: translate(-50%, -50%) scale(1);
+  animation: smokeMove 18s ease-in-out infinite;
+  z-index: 1; /* ✅ ensures it's above background but behind logo/text */
+}
+
+@keyframes smokeMove {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translate(-48%, -52%) scale(1.1) rotate(10deg);
+  }
+}
+
+
+
+
+/* ===== SECTIONS GENERAL ===== */
+section {
+  padding: 100px 60px;
+  position: relative;
+}
+
+h2.section-title {
+  font-family: 'Cinzel', serif;
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 2.3rem;
+  text-shadow: 0 0 10px rgba(212,175,55,0.5);
+}
+
+/* ===== BLENDS (VIDEO + TEXT) ===== */
+.products-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.products-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+  gap: 40px;
+}
+
+.products-left {
+  flex: 1;
+  position: relative;
+  height: 400px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(212,175,55,0.4);
+}
+
+.products-left video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.video-controls {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.video-controls button {
+  background-color: rgba(75, 30, 30, 0.6);
+  color: var(--gold);
+  border: 1.5px solid var(--gold);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.video-controls button:hover {
+  background-color: var(--gold);
+  color: var(--royal-maroon);
+  box-shadow: 0 0 10px var(--gold);
+}
+
+.products-right {
+  flex: 1;
+  color: var(--beige);
+  font-family: 'Lora', serif;
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+/* ===== PRODUCTS (4 CARDS) ===== */
+.blends-container {
+  display: flex;
+  justify-content: center;   /* centers all cards */
+  align-items: flex-start;
+  gap: 40px;                 /* spacing between images */
+  flex-wrap: nowrap;         /* keeps all 4 in one line */
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;          /* ✅ hides scrollbar and box edges */
+  padding: 20px 0;
+  background: none;          /* ✅ removes any visible box background */
+  box-shadow: none;          /* ✅ removes shadows around container */
+}
+
+/* Individual Product Cards */
+.blend-card {
+  background: transparent;   /* ✅ removes box background */
+  border: none;              /* ✅ removes border box around each image */
+  border-radius: 20px;
+  overflow: hidden;
+  width: 300px;              /* large image width */
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.blend-card img {
+  width: 100%;
+  height: 260px;             /* makes them big and elegant */
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(212,175,55,0.25); /* soft golden glow */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.blend-card:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px rgba(212,175,55,0.5);
+}
+
+.blend-card h3 {
+  margin-top: 15px;
+  font-family: 'Cinzel', serif;
+  color: var(--gold);
+  font-size: 1.2rem;
+  text-shadow: 0 0 10px rgba(212,175,55,0.3);
+}
+
+
+
+
+
+/* ===== WHAT WE DO (SPLIT LAYOUT) ===== */
+.what-we-do {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ===== TIME-LAPSE SECTION (NARROWER WIDTH) ===== */
+/* ===== TIME-LAPSE SECTION (SLIGHTLY SMALLER BALANCED WIDTH) ===== */
+.what-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 45px;
+  max-width: 1150px;          /* ✅ slightly smaller than before (was 1300px) */
+  width: 100%;
+  background-color: rgba(30, 10, 10, 0.6);
+  border: 1px solid rgba(212,175,55,0.4);
+  border-radius: 22px;
+  padding: 50px;              /* ✅ slightly less padding for balance */
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 30px rgba(212,175,55,0.25);
+  margin: 0 auto;
+}
+
+.what-left {
+  flex: 1.1;                  /* ✅ moderate video width */
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.what-left video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 0 25px rgba(212,175,55,0.3);
+}
+
+.what-right {
+  flex: 1;
+  color: var(--beige);
+  font-family: 'Lora', serif;
+  font-size: 1.1rem;          /* ✅ slightly smaller text for proportion */
+  line-height: 1.85;
+  text-align: left;
+}
+
+
+
+.what-right ul {
+  list-style: none;
+  margin-top: 15px;
+  padding-left: 0;
+}
+
+.what-right li {
+  position: relative;
+  margin: 10px 0;
+  padding-left: 25px;
+}
+
+.what-right li::before {
+  content: "★";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+
+/* ===== ABOUT SECTION ===== */
+.about-container {
+  max-width: 850px;
+  background-color: rgba(30, 10, 10, 0.6);
+  padding: 40px 50px;
+  border-radius: 20px;
+  border: 1px solid rgba(212,175,55,0.4);
+  backdrop-filter: blur(10px);
+  color: var(--beige);
+  line-height: 1.9;
+  font-family: 'Lora', serif;
+  font-size: 1.1rem;
+  box-shadow: 0 0 30px rgba(212,175,55,0.2);
+}
+
+/* ===== CONTACT ===== */
+.contact form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(30, 10, 10, 0.6);
+  border-radius: 15px;
+  padding: 40px;
+  border: 1px solid rgba(212,175,55,0.4);
+}
+
+.contact input,
+.contact textarea {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  background: rgba(50, 20, 20, 0.6);
+  color: var(--beige);
+  font-size: 1rem;
+}
+
+.contact button {
+  padding: 15px;
+  background-color: transparent;
+  color: var(--gold);
+  border: 2px solid var(--gold);
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.4s;
+  border-radius: 8px;
+}
+
+.contact button:hover {
+  background-color: var(--gold);
+  color: var(--royal-maroon);
+  box-shadow: 0 0 25px var(--gold);
+  transform: scale(1.03);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 40px 0;
+  background-color: rgba(25, 10, 10, 0.8);
+  color: var(--beige);
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .products-container,
+  .what-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .products-left, .products-right, .what-left, .what-right {
+    width: 100%;
+  }
+  .video-controls {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+
+
+
+/* ===== WHY CHOOSE SECTION ===== */
+.why-choose {
+  padding: 100px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.why-container {
+  max-width: 800px;
+  width: 100%;
+  background-color: rgba(30, 10, 10, 0.6);
+  border: 1.5px solid rgba(212,175,55,0.4);
+  border-radius: 20px;
+  padding: 40px 50px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 25px rgba(212,175,55,0.2);
+}
+
+.why-container ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.why-container li {
+  position: relative;
+  margin: 15px 0;
+  padding-left: 30px;
+  color: var(--beige);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  font-family: 'Lora', serif;
+}
+
+.why-container li::before {
+  content: "✅";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-size: 1.2rem;
+}
+
+
+
+/* ===== CAROUSEL SECTIONS ===== */
+/* ===== WE SPECIALIZE IN (MATCHED BOX STYLE) ===== */
+
+/* ===== WE SPECIALIZE IN (balanced size + glowing text hover) ===== */
+.specialize .carousel-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  max-width: 1150px;               /* same size as timelapse section */
+  width: 100%;
+  background-color: rgba(30,10,10,0.6);
+  border: 1px solid rgba(212,175,55,0.4);
+  border-radius: 22px;
+  padding: 50px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 30px rgba(212,175,55,0.25);
+  margin: 0 auto;
+  overflow: hidden;                /* hides image overflow */
+}
+
+/* ===== WHY CHOOSE (MATCHED BOX STYLE + GLOWING TEXT) ===== */
+.why-choose .carousel-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  max-width: 1150px;               /* same as specialize */
+  width: 100%;
+  background-color: rgba(30,10,10,0.6);
+  border: 1px solid rgba(212,175,55,0.4);
+  border-radius: 22px;
+  padding: 50px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 30px rgba(212,175,55,0.25);
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* Reverse layout (images left, text right) */
+.carousel-section.reverse {
+  flex-direction: row-reverse;
+}
+
+/* ===== Text Section ===== */
+.why-choose .carousel-text {
+  flex: 1;
+  color: var(--beige);
+  font-size: 1.1rem;
+  line-height: 1.9;
+  font-family: 'Lora', serif;
+}
+
+.why-choose .carousel-text ul {
+  list-style: none;
+  padding: 0;
+}
+
+.why-choose .carousel-text li {
+  margin: 15px 0;
+  padding-left: 30px;
+  position: relative;
+  cursor: pointer;
+  transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
+}
+
+.why-choose .carousel-text li::before {
+  content: "✅";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-size: 1.1rem;
+  transition: text-shadow 0.3s;
+}
+
+/* ✅ Golden glow on hover */
+.why-choose .carousel-text li:hover {
+  color: var(--gold);
+  text-shadow: 0 0 10px var(--gold);
+  transform: translateX(5px);
+}
+.why-choose .carousel-text li:hover::before {
+  text-shadow: 0 0 10px var(--gold);
+}
+
+/* ===== Carousel Images ===== */
+.why-choose .carousel-container {
+  flex: 1;
+  position: relative;
+  border: 1.5px solid var(--gold);
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(212,175,55,0.3);
+  overflow: hidden;
+}
+
+.why-choose .carousel {
+  display: flex;
+  transition: transform 0.8s ease-in-out;
+}
+
+.why-choose .carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  flex-shrink: 0;
+  display: block;
+}
+
+/* ===== Controls ===== */
+.why-choose .carousel-controls {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.why-choose .carousel-controls button {
+  background-color: rgba(0,0,0,0.5);
+  color: var(--gold);
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.why-choose .carousel-controls button:hover {
+  background-color: var(--gold);
+  color: var(--royal-maroon);
+  box-shadow: 0 0 15px var(--gold);
+}
+
+/* ===== Dots ===== */
+.why-choose .dots {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.why-choose .dots span {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(212,175,55,0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.why-choose .dots span.active {
+  background-color: var(--gold);
+  transform: scale(1.2);
+}
+
+
+
+
+/* ===== Text Section ===== */
+.carousel-text {
+  flex: 1;
+  color: var(--beige);
+  font-size: 1.1rem;
+  line-height: 1.9;
+  font-family: 'Lora', serif;
+}
+
+.carousel-text ul {
+  list-style: none;
+  padding: 0;
+}
+
+.carousel-text li {
+  margin: 15px 0;
+  padding-left: 30px;
+  position: relative;
+  cursor: pointer;
+  transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
+}
+
+.carousel-text li::before {
+  content: "✅";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-size: 1.1rem;
+  transition: text-shadow 0.3s;
+}
+
+/* ✅ Gentle golden glow on hover */
+.carousel-text li:hover {
+  color: var(--gold);
+  text-shadow: 0 0 10px var(--gold);
+  transform: translateX(5px);
+}
+.carousel-text li:hover::before {
+  text-shadow: 0 0 10px var(--gold);
+}
+
+/* ===== Carousel Images ===== */
+.carousel-container {
+  flex: 1;
+  position: relative;
+  border: 1.5px solid var(--gold);
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(212,175,55,0.3);
+  overflow: hidden;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.8s ease-in-out;
+}
+
+.carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* fills the container neatly */
+  border-radius: 20px;
+  flex-shrink: 0;
+  display: block;
+}
+
+
+
+
+
+/* No image gaps anywhere */
+.carousel img + img {
+  margin-left: 0;
+}
+
+/* ===== CONTROLS ===== */
+.carousel-controls {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.carousel-controls button {
+  background-color: rgba(0,0,0,0.5);
+  color: var(--gold);
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.carousel-controls button:hover {
+  background-color: var(--gold);
+  color: var(--royal-maroon);
+  box-shadow: 0 0 15px var(--gold);
+}
+
+/* ===== DOTS ===== */
+.dots {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.dots span {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(212,175,55,0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.dots span.active {
+  background-color: var(--gold);
+  transform: scale(1.2);
+}
+
+
+
+
+
+
+/* ===== ABOUT IMAGE ===== */
+/* ===== ABOUT SECTION ===== */
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;       /* centers everything horizontally */
+  justify-content: center;   /* vertically centers if needed */
+  text-align: center;        /* centers the text content */
+  padding: 100px 20px;
+}
+
+.about-container {
+  max-width: 850px;
+  width: 100%;
+  background-color: rgba(30, 10, 10, 0.6);
+  padding: 50px 60px;
+  border-radius: 20px;
+  border: 1px solid rgba(212,175,55,0.4);
+  backdrop-filter: blur(10px);
+  color: var(--beige);
+  line-height: 1.9;
+  font-family: 'Lora', serif;
+  font-size: 1.1rem;
+  box-shadow: 0 0 30px rgba(212,175,55,0.2);
+  text-align: center;         /* centers paragraph text */
+}
+
+.about-image {
+  display: block;
+  width: 100%;
+  max-width: 300px;        /* large and clear image */
+  height: auto;            /* keeps natural proportions */
+  object-fit: contain;     /* shows full image without cropping */
+  border-radius: 20px;     /* subtle smooth corners */
+  margin: 0 auto 40px;     /* centers image */
+  border: 2px solid var(--gold);
+  box-shadow: 0 0 35px rgba(212,175,55,0.4);
+  background-color: rgba(75, 30, 30, 0.7);
+  animation: fadeInImage 1.5s ease-in-out;
+}
+
+
+@keyframes fadeInImage {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ===== CONTACT IMAGE & INFO ===== */
+.contact-image {
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 25px;
+  margin: 0 auto 40px;
+  border: 2px solid var(--gold);
+  box-shadow: 0 0 35px rgba(212,175,55,0.4);
+  background-color: rgba(75, 30, 30, 0.8);
+
+
+}
+
+@keyframes fadeInImage {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+
+.contact-info {
+  text-align: center;
+  margin-top: 20px;
+  color: var(--beige);
+  font-size: 1.1rem;
+  font-family: 'Lora', serif;
+}
+
+.contact-info p {
+  margin: 5px 0;
+}
+
+
+/* ===== MOBILE VIEW (below 900px) ===== */
+@media (max-width: 900px) {
+
+  /* HEADER */
+  header {
+    flex-direction: column;
+    padding: 15px 20px;
+    text-align: center;
+  }
+
+  header h1 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  nav a {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  /* HERO SECTION */
+  .hero {
+    height: 100vh;
+    padding-top: 80px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-logo {
+    width: 200px;
+    margin-top: 20px;
+  }
+
+  .hero-content {
+    margin-top: 350px;
+    font-size: 0.9rem;
+    padding: 0 15px;
+  }
+
+  .hero-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .hero-bg {
+    width: 400px;
+    height: 300px;
+  }
+
+  .smoke {
+    width: 500px;
+    height: 500px;
+    filter: blur(70px);
+  }
+
+  /* PRODUCTS SECTION */
+  .products-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .products-left, .products-right {
+    width: 100%;
+  }
+
+  .products-left {
+    height: 250px;
+  }
+
+  .products-left video {
+    height: 100%;
+  }
+
+  /* BLENDS (PRODUCT CARDS) */
+  .blends-container {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .blend-card {
+    width: 90%;
+  }
+
+  .blend-card img {
+    height: 220px;
+  }
+
+  /* TIMELAPSE SECTION */
+  .what-container {
+    flex-direction: column;
+    gap: 25px;
+    padding: 30px;
+  }
+
+  .what-left,
+  .what-right {
+    width: 100%;
+  }
+
+  .what-left video {
+    height: 250px;
+  }
+
+  .what-right {
+    text-align: center;
+  }
+
+  /* CAROUSEL SECTIONS (SPECIALIZE + WHY CHOOSE) */
+  .specialize .carousel-section,
+  .why-choose .carousel-section {
+    flex-direction: column;
+    padding: 30px 20px;
+    gap: 30px;
+  }
+
+  .carousel-text {
+    order: 2;
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  .carousel-container {
+    order: 1;
+    width: 100%;
+    height: 250px;
+  }
+
+  .carousel img {
+    height: 100%;
+  }
+
+  .carousel-controls button {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
+
+  /* ABOUT SECTION */
+  .about-container {
+    padding: 30px 20px;
+    font-size: 1rem;
+  }
+
+  .about-image {
+    max-width: 220px;
+    margin-bottom: 25px;
+  }
+
+  /* CONTACT SECTION */
+  .contact-image {
+    max-width: 350px;
+  }
+
+  .contact-info {
+    font-size: 1rem;
+  }
+
+  /* FOOTER */
+  footer {
+    font-size: 0.85rem;
+    padding: 25px 10px;
+  }
+}
